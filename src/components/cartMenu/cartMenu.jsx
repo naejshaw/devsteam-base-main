@@ -24,7 +24,7 @@ export default function CartMenu({cart, onRemove}){
                 <h2>Total</h2>
                 <h2 className={styles.price}>R$ {
                     cart.reduce((prev, current) => prev + current.price, 0).toFixed(2)
-                    }</h2>
+                }</h2>
             </div>
         </div>
     )
