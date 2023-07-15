@@ -1,8 +1,8 @@
-import styels from './container.module.css'
+import styles from './container.module.css'
 
 export default function Container({children}) {
     return (
-        <div className={styels.container}>
+        <div className={styles.container}>
             {children}
         </div>
     )
