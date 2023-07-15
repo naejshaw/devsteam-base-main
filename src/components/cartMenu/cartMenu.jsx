@@ -13,7 +13,7 @@ export default function CartMenu({cart, onRemove}){
                         <CartOption
                             image={cartInfo.image}
                             title={cartInfo.title}
-                            price={cartInfo.pricee}
+                            price={cartInfo.price}
                             onRemove={() => onRemove(pos)}
                             key={`cart-info-${pos}`}
                         />
