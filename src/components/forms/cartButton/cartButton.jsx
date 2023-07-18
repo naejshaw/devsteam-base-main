@@ -1,20 +1,23 @@
 import { useState } from 'react'
+import { useRecoilValue } from 'recoil'
+
+import { cartState } from '@/atoms/cart'
 
 import styles from './cartButton.module.css'
 import { BsCart4 } from 'react-icons/bs'
 import CartMenu from '@/components/cartMenu/cartMenu'
 
-export default function CartButton({cart, onRemove}) {
+export default function CartButton() {
+    const cart = useRecoilValue(cartState)
     const [open, setOpen] = useState(false)
 
     return (
-        <div>
+        <div className={styles.cartbutton} onClick={() => {setOpen(!open)}}>
             <BsCart4 
-            className={styles.icon} 
             size={40} 
-            onClick={() => {setOpen(!open)}}
             />
-            {open && <CartMenu cart={cart} onRemove={onRemove} />}
+            {cart.length !== 0 && <div className={styles.quantity}>{cart.length}</div>}
+            {open && <CartMenu />}
         </div>
     )
 }
