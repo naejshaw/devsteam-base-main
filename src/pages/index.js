@@ -2,6 +2,7 @@ import Head from 'next/head'
 import {useRecoilState} from 'recoil'
 
 import {cartState} from '@/atoms/cart'
+import {wishState} from '@/atoms/wish'
 
 import styles from '@/styles/index.module.css'
 
@@ -16,6 +17,12 @@ export default function Home() {
 
   const handleAddProduct = (info) => {
     setCart([...cart, info])
+  }
+
+  const [wish, setWish] = useRecoilState(wishState)
+
+  const handleAddWish = (info) => {
+    setWish([...wish, info])
   }
  
   return (
@@ -40,6 +47,9 @@ export default function Home() {
                 onAdd={() => 
                   handleAddProduct({name: 'League of Legends', price: 57.9, image: 'league-of-legends.jpg'})
                 }
+                onAddWish={() => 
+                  handleAddWish({name: 'League of Legends', image: 'league-of-legends.jpg'})
+                }
               />
               <SaleCard
                 image= 'dota-2.jpg'
@@ -48,6 +58,9 @@ export default function Home() {
                 discountPrice= '29,90'
                 onAdd={() => 
                   handleAddProduct({name: 'Dota 2', price: 29.9, image: 'dota-2.jpg'})
+                }
+                onAddWish={() => 
+                  handleAddWish({name: 'Dota 2', image: 'dota-2.jpg'})
                 }
               />
               <SaleCard
@@ -58,6 +71,9 @@ export default function Home() {
                 onAdd={() => 
                   handleAddProduct({name: 'Valorant', price: 67.9, image: 'valorant.jpg'})
                 }
+                onAddWish={() => 
+                  handleAddWish({name: 'Valorant', image: 'valorant.jpg'})
+                }
               />
             </div>
           </div>
@@ -67,6 +83,9 @@ export default function Home() {
               <GameCard
                 onAdd={() => 
                   handleAddProduct({name: 'Counter Strike', price: 99.9, image: 'counter-strike.jpg'})
+                }
+                onAddWish={() => 
+                  handleAddWish({name: 'Counter Strike', image: 'counter-strike.jpg'})
                 }
               />            
             </div>
